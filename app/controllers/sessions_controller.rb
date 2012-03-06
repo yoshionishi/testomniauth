@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  
+
   def create
   auth = request.env["omniauth.auth"]
   user = User.where(:provider => auth['provider'], 
@@ -11,14 +11,14 @@ class SessionsController < ApplicationController
     redirect_to root_url, :notice => 'Signed in!'
   end
   end
-
+  
   def destroy
-    reset_session
-    redirect_to root_url, :notice => 'Signed out!'
+  reset_session
+  redirect_to root_url, :notice => 'Signed out!'
   end
 
   def new
-    redirect_to '/auth/twitter'
+  redirect_to '/auth/twitter'
   end
 
   def failure
